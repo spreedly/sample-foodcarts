@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+# Bundle
+checksum = `md5 -q Gemfile`.strip
+if(!File.exist?('.bundle/checksum') || checksum != File.read('.bundle/checksum').strip)
+  puts "Bundle installing"
+  system %(bundle install --path vendor >/dev/null)
+  abort("Failed to install bundle") unless $?.success?
+  File.open('.bundle/checksum', 'w'){|f| f.puts checksum}
+end
+puts "Gemfile up to date: check!" if $VERBOSE
