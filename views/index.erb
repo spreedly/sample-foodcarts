@@ -1,12 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Food Carts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+<div class="container">
+  <h1>Welcome!</h1>
+  <p class="lead">Anyone can operate a Food Cart! All it takes is a willingness to sell food on the side of the road. In some countries, selling food is considered <a href="http://edwin-clark.hubpages.com/hub/How-to-Start-Your-Own-Business-in-Thailand">one of the best businesses</a> you can operate. You'll need a way to collect money, and Food Carts is here to help you.</p>
+</div>
+
+<% if @cart %>
+  <div class="container">
+    <p>You have already created a cart. <a href="/cart">View it</a> or <a href="/delete" onclick="if (!confirm('Really?!')) return false;">delete it</a>.</p>
+  </div>
+<% else %>
+  <div class="container">
+    <h4>Create an Account</h4>
+    <% if @error %>
+      <p class="text-error"><%= @error %></p>
+    <% end %>
+    <form class="form-horizontal" action="/carts" method="POST">
+      <div class="control-group">
+        <label class="control-label" for="cart_name">Cart Name</label>
+        <div class="controls">
+          <input type="text" name="cart_name" id="cart_name" placeholder="Cart name">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn">Sell Food!</button>
+        </div>
+      </div>
+    </form>
+  </div>
+<% end %>
