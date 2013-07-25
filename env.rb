@@ -6,4 +6,4 @@ begin; require_relative '.env.rb'; rescue LoadError; end
 ENV['SPREEDLY_API_URL'] ||= 'https://core.spreedly.com'
 ENV['SPREEDLY_ENVIRONMENT_KEY'] ||= 'OB9909MNZj62u9U4VAz3lAAPZcp'
 ENV['SPREEDLY_ACCESS_SECRET'] ||= 'MIMo7gJrSi3LnJGdRrOZeBBowXmDVE4zEgyHQS91tIqZiJ2oiy6PRt5XJVXG7hcz'
-ENV['SPREEDLY_JS_URL'] ||= ENV['SPREEDLY_API_URL'] + '/v1/spreedly.js'
+ENV['SPREEDLY_JS_URL'] ||= '/js/spreedly.js'
