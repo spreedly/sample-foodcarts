@@ -39,7 +39,7 @@ get '/cart' do
 end
 
 get '/delete' do # bad boy
-  session[:cart] = nil
+  session[:cart] = session[:gateway] = nil
   redirect to('/')
 end
 
