@@ -1,6 +1,5 @@
 <div class="container">
   <h1><%= @cart[:cart_name] %></h1>
-  <h4>A mobile food cart for fun and profit.</h4>
 </div>
 
 <div class="container">
@@ -13,7 +12,7 @@
 
 	<% else %>
 
-		<p class="lead">To make a profit, you'll need to collect monies! At Food Carts, the magic cannot begin until you have told us a few things. Numero uno: who's your Payment Gateway?</p>
+    <p class="lead">To begin accepting payments, we need to set up your payment gateway. Select your payment gateway from the drop down menu below. Each gateway has it's own variation on what you need to enter to go live but it's usually two or three different fields. If you're not sure where to find this information it's usually in the account manager area of your payment gateway."</p>
 		<form action="/gateway" method="POST" class="spreedly-gateway"
 		   data-environment-key="<%= ENV['SPREEDLY_ENVIRONMENT_KEY'] %>"
 		   data-types="test">
