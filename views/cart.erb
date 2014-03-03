@@ -11,13 +11,17 @@
 		<p>spreedly.js has been designed to simplify your integration with Spreedly. Thanks for exploring, and <a href="mailto:support@spreedly.com?subject=Food%20Carts%20Sample%20-%20spreedly.js">please let us know</a> if you have any trouble.</p>
 
 	<% else %>
-
     <p class="lead">To begin accepting payments, we need to set up your payment gateway. Select your payment gateway from the drop down menu below. Each gateway has it's own variation on what you need to enter to go live but it's usually two or three different fields. If you're not sure where to find this information it's usually in the account manager area of your payment gateway."</p>
-		<form action="/gateway" method="POST" class="spreedly-gateway"
-		   data-environment-key="<%= ENV['SPREEDLY_ENVIRONMENT_KEY'] %>"
-		   data-types="test">
-		   <input type="hidden" name="cart_name" value="<%= @cart[:cart_name] %>"></input>
-		</form>
+    <div class="row">
+      <div class="span5">
+      <form action="/gateway" method="POST" class="spreedly-gateway"
+        data-environment-key="<%= ENV['SPREEDLY_ENVIRONMENT_KEY'] %>"
+        data-theme="default"
+        data-types="test">
+        <input type="hidden" name="cart_name" value="<%= @cart[:cart_name] %>"></input>
+      </form>
+      </div>
+    </div>
 		<script type="text/javascript" src="<%= ENV['SPREEDLY_JS_URL'] %>"></script>
 
 		<!-- Nothing to see here. Move along. Okay, fine. It's here because I can work
