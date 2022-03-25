@@ -24,7 +24,7 @@ DEPENDENCIES
   thin (~> 1.8.0)
 
 RUBY VERSION
-   ruby 2.5.8p224
+   ruby 2.7.5p203
 
 BUNDLED WITH
-   2.2.14
+   2.3.7
