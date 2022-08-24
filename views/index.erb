@@ -5,7 +5,25 @@
 
 <% if @cart %>
   <div class="container">
-    <p>You have already created a cart. <a href="/cart">View it</a> or <a href="/delete" onclick="if (!confirm('Really?!')) return false;">delete it</a>.</p>
+    <p>You have already created a cart.</p>
+
+    <form class="form-horizontal" action="/cart" method="GET">
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn">View existing cart</button>
+        </div>
+      </div>
+    </form>
+
+    <form class="form-horizontal" action="/delete" method="POST">
+      <div class="control-group">
+        <div class="controls">
+          <input type="hidden" name="authenticity_token" value="<%= env['rack.session'][:csrf] %>" />
+          <button type="submit" class="btn">Delete existing cart</button>
+        </div>
+      </div>
+    </form>
+
   </div>
 <% else %>
   <div class="container">
@@ -18,6 +36,7 @@
         <label class="control-label" for="cart_name">Cart Name</label>
         <div class="controls">
           <input type="text" name="cart_name" id="cart_name" placeholder="Cart name">
+          <input type="hidden" name="authenticity_token" value="<%= env['rack.session'][:csrf] %>" />
         </div>
       </div>
       <div class="control-group">

@@ -18,6 +18,7 @@
         data-environment-key="<%= ENV['SPREEDLY_ENVIRONMENT_KEY'] %>"
         data-theme="default"
         data-types="test">
+        <input type="hidden" name="authenticity_token" value="<%= env['rack.session'][:csrf] %>" />
         <input type="hidden" name="cart_name" value="<%= @cart[:cart_name] %>"></input>
       </form>
       </div>

@@ -5,6 +5,7 @@ require_relative 'env'
 
 use Rack::Session::Pool, :expire_after => 2592000
 use Rack::Protection
+use Rack::Protection::AuthenticityToken
 
 helpers do
   def view(template)
@@ -40,7 +41,7 @@ get '/cart' do
   @cart ? view(:cart) : redirect(to('/'))
 end
 
-get '/delete' do # bad boy
+post '/delete' do
   session[:cart] = session[:gateway] = nil
   redirect to('/')
 end
