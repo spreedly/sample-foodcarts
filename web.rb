@@ -1,8 +1,10 @@
 require 'sinatra'
 require 'rack/session/pool'
+require 'rack/protection'
 require_relative 'env'
 
 use Rack::Session::Pool, :expire_after => 2592000
+use Rack::Protection
 
 helpers do
   def view(template)
