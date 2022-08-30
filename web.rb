@@ -12,6 +12,14 @@ helpers do
     @active = template
     erb template
   end
+
+  def h(text)
+    Rack::Utils.escape_html(text)
+  end
+
+  def hattr(text)
+    Rack::Utils.escape_path(text)
+  end
 end
 
 before do

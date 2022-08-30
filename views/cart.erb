@@ -1,12 +1,12 @@
 <div class="container">
-  <h1><%= @cart[:cart_name] %></h1>
+  <h1><%= h @cart[:cart_name] %></h1>
 </div>
 
 <div class="container">
 	<% if @gateway %>
 
 		<p class="lead">Great! You have configurated a Gateway.</p>
-		<p>Your Gateway token is <em>'<%= @gateway[:gateway_token] %>'</em>. You can see how it was retained using the secure API by looking at <a href="https://github.com/spreedly/sample-foodcarts/blob/master/web.rb">the application code</a>.</p>
+		<p>Your Gateway token is <em>'<%= h @gateway[:gateway_token] %>'</em>. You can see how it was retained using the secure API by looking at <a href="https://github.com/spreedly/sample-foodcarts/blob/master/web.rb">the application code</a>.</p>
 		<p>Now imagine having thousands of customers, each one using a different Gateway. You are able to store credit cards and other payment methods in Spreedly's vault for all of them. If they decide to move to another Gateway, you can tell them, "No problemo! We're using Spreedly!"<p>
 		<p>spreedly.js has been designed to simplify your integration with Spreedly. Thanks for exploring, and <a href="mailto:support@spreedly.com?subject=Food%20Carts%20Sample%20-%20spreedly.js">please let us know</a> if you have any trouble.</p>
 
@@ -19,7 +19,7 @@
         data-theme="default"
         data-types="test">
         <input type="hidden" name="authenticity_token" value="<%= env['rack.session'][:csrf] %>" />
-        <input type="hidden" name="cart_name" value="<%= @cart[:cart_name] %>"></input>
+        <input type="hidden" name="cart_name" value="<%= hattr @cart[:cart_name] %>"></input>
       </form>
       </div>
     </div>
